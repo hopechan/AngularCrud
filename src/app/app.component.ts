@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'crud';
+  //propiedades para componentes hijos
+  title = 'Juegos';
+  juego_id;
+
+  //propiedades usadas para identificar que vista usar
+  mostrar_juegos_html = true;
 }
