@@ -1,1 +1,47 @@
-<p>juego-read works!</p>
+<div class="row m-b-18px">
+    <div class="col-md-12">
+        <!-- Boton para crear un nuevo registro -->
+        <a (click)="crearJuego()" class='btn btn-primary pull-right'>
+            <span class='glyphicon glyphicon-plus'></span> Crear Juego
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <!-- HTML table for our list of product records -->
+        <table class='table table-hover table-responsive table-bordered'>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Compañia</th>
+                <th>Genero</th>
+                <th>Fecha Lanzamiento</th>
+                <th>Acciones</th>
+            </tr>
+            <!-- Usa *ngFor para recorrer la lista de juegos -->
+            <tr *ngFor="let juego of juegos">
+                <td>{{juego.id}}</td>
+                <td>{{juego.titulo}}</td>
+                <td>{{juego.compania}}</td>
+                <td>{{juego.genero}}</td>
+                <td>{{juego.fecha_lanzamiento}}</td>
+                <td>
+                    <!-- boton para ver el detalle de un juego -->
+                    <a (click)="detalle(juego.id)" class='btn btn-primary m-r-5px'>
+                        <span class='glyphicon glyphicon-eye-open'></span> Ver
+                    </a>
+ 
+                    <!-- boton para actualizar un juego-->
+                    <a (click)="actualizar(juego.id)" class='btn btn-info m-r-5px'>
+                        <span class='glyphicon glyphicon-edit'></span> Editar
+                    </a>
+ 
+                    <!-- boton para borrar un  juego-->
+                    <a (click)="borrar(juego.id)" class='btn btn-danger m-r-5px'>
+                        <span class='glyphicon glyphicon-remove'></span> Borrar
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

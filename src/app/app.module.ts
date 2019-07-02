@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+//nueva importacion
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JuegoCreateComponent } from './juego-create/juego-create.component';
 import { JuegoReadComponent } from './juego-read/juego-read.component';
 import { JuegoUpdateComponent } from './juego-update/juego-update.component';
 import { JuegoDeleteComponent } from './juego-delete/juego-delete.component';
+import { JuegoDetalleComponent } from './juego-detalle/juego-detalle.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,14 @@ import { JuegoDeleteComponent } from './juego-delete/juego-delete.component';
     JuegoCreateComponent,
     JuegoReadComponent,
     JuegoUpdateComponent,
-    JuegoDeleteComponent
+    JuegoDeleteComponent,
+    JuegoDetalleComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    //Nuevo import
+    HttpModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
