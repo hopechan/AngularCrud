@@ -1,15 +1,21 @@
-# Crud
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.6.
+# CRUD Angular + PHP
+Backend: Codeigniter + mysql
+FrontEnd: Angular + MaterializeCSS
 
 ### Pre-requisitos 📋
 node js
 npm
 angular cli
+xampp
+mysql
 
-## Instalar dependencias 🔧
+
+##Instalacion Backend 🔧
+Copiar la carpeta api dentro xampp/htdocs
+Ejecutar el script juegos.sql en PHPMyAdmin o similar
+
+## Instalar dependencias FrontEnd 🔧
 npm install
 
 ## Iniciar el servidor 🚀
-
 ng server
