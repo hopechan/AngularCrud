@@ -23,9 +23,16 @@ export class JuegoReadComponent implements OnInit {
   borrar(id: number){}
 
   ngOnInit() {
+    /*
     this.juegoService.readJuegos()
         .subscribe(juegos => 
-            this.juegos = this.juegos['records']
+            this.juegos = this.juegos['result']
         );
+    */
+   this.juegoService.readJuegos().subscribe((juegos: Juego[]) => {
+     this.juegos = juegos;
+     //console.log(this.juegos);
+     
+   })
   }
 }

@@ -9,6 +9,7 @@ import { JuegoReadComponent } from './juego-read/juego-read.component';
 import { JuegoUpdateComponent } from './juego-update/juego-update.component';
 import { JuegoDeleteComponent } from './juego-delete/juego-delete.component';
 import { JuegoDetalleComponent } from './juego-detalle/juego-detalle.component';
+import { JuegoService } from './juego.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { JuegoDetalleComponent } from './juego-detalle/juego-detalle.component';
     //Nuevo import
     HttpModule 
   ],
-  providers: [],
+  //se agrega el servicio en providers 
+  providers: [JuegoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
