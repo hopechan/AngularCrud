@@ -1,18 +1,18 @@
 # CRUD Angular + PHP
-Backend: Codeigniter + mysql
-FrontEnd: Angular + MaterializeCSS
+Backend: Codeigniter + mysql_
+FrontEnd: Angular + MaterializeCSS_
 
 ### Pre-requisitos 📋
-node js
-npm
-angular cli
-xampp
-mysql
+node js_
+npm_
+angular cli_
+xampp_
+mysql_
 
 
-##Instalacion Backend 🔧
-Copiar la carpeta api dentro xampp/htdocs
-Ejecutar el script juegos.sql en PHPMyAdmin o similar
+## Instalacion Backend 🔧
+Copiar la carpeta api dentro xampp/htdocs_
+Ejecutar el script juegos.sql en PHPMyAdmin o similar_
 
 ## Instalar dependencias FrontEnd 🔧
 npm install
