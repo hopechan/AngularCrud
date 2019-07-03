@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //nueva importacion
 import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JuegoCreateComponent } from './juego-create/juego-create.component';
@@ -24,7 +25,9 @@ import { JuegoService } from './juego.service';
     BrowserModule,
     AppRoutingModule,
     //Nuevo import
-    HttpModule 
+    HttpModule ,
+    FormsModule,
+    ReactiveFormsModule
   ],
   //se agrega el servicio en providers 
   providers: [JuegoService],

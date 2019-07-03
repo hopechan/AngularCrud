@@ -1,1 +1,40 @@
-<p>juego-create works!</p>
+<div class="row">
+    <div class="col s6 m6">
+        <a class="waves-effect waves-light btn green accent-4" (click)="readJuegos()">Regresar</a>
+    </div>
+</div>
+<br>
+<div class="row">
+    <form action="" class="col s12 m8" [formGroup]="crear_juego_form" (ngSubmit)="crearJuego()">
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="text" placeholder="Titulo" id="txtTitulo" name="txtTitulo">
+                <label for="txtTitulo">Titulo</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="text" placeholder="Compañia" id="txtCompania" name="txtCompania">
+                <label for="txtCompania">Compañia</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="text" placeholder="Genero" id="txtGenero" name="txtGenero">
+                <label for="txtGenero">Genero</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="date" id="txtFecha" name="txtFecha">
+                <label for="txtFecha">Fecha de Lanzamiento</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6 m6">
+                <a class="waves-effect waves-light btn">Guardar</a>
+            </div>
+        </div>
+    </form>
+    
+</div>

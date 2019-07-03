@@ -16,4 +16,10 @@ export class JuegoService {
     readJuegos(): Observable<Juego[]>{
         return this._http.get(this.PHP_API_SERVER).pipe(map((res: Response) => res.json()))
     }
+
+    crearJuego(juego): Observable<Juego[]>{
+        let cabecera = new Headers({'Content-Type': 'application/json'});
+        let opciones = new RequestOptions({headers: cabecera});
+        return this._http.post(this.PHP_API_SERVER, juego, opciones).pipe(map((res: Response) => res.json()));
+    }
 }

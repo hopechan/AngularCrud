@@ -10,7 +10,10 @@
     -->
     <hr><br>
   <app-juego-read
-      *ngIf="mostrar_juegos_html">
+      *ngIf="mostrar_juegos_html"
+      (mostrar_crear_juego_event) = "mostrarCrearJuego($event)">
   </app-juego-read>
+
+  <app-juego-create *ngIf = "mostrar_crear_juego_html" (mostrar_mostrar_juegos_event)  = "mostrarJuegos($event)"></app-juego-create>
 </div>
 

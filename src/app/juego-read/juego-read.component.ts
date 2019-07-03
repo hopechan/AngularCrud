@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { JuegoService } from "../juego.service"; //clase que maneja el acceso a la API
 import { Observable } from "rxjs";
 import { Juego } from "../juego";//clase que posee las propiedades de la entidad
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-juego-read',
@@ -11,24 +12,25 @@ import { Juego } from "../juego";//clase que posee las propiedades de la entidad
 })
 export class JuegoReadComponent implements OnInit {
   //Lista donde se almacenaran los datos
+  @Output() mostrar_crear_juego_event = new EventEmitter();
   juegos: Juego[];
 
   //se inicializa JuegoService 
   constructor(private juegoService: JuegoService) { }
 
   //metodos
-  crearJuego(){}
+
+  //cuando el usuario de clic en el boton "Nuevo"
+  crearJuego(){
+    this.mostrar_crear_juego_event.emit({
+      title: "Create Product"
+  });
+  }
   detalle(id: number){}
   actualizarJuego(id: number){}
   borrar(id: number){}
 
   ngOnInit() {
-    /*
-    this.juegoService.readJuegos()
-        .subscribe(juegos => 
-            this.juegos = this.juegos['result']
-        );
-    */
    this.juegoService.readJuegos().subscribe((juegos: Juego[]) => {
      this.juegos = juegos;
      //console.log(this.juegos);
