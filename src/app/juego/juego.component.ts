@@ -44,6 +44,21 @@ export class JuegoComponent implements OnInit {
 
   }
 
+  borrar(id: string){
+    if (confirm("¿Esta seguro de borrar el registro?")) {   
+      console.log(id);
+      
+      this.juegoService.deleteJuego(id).subscribe(() => {  
+        this.dataSaved = true;  
+        this.mensaje = 'Registro Borrado';  
+        this.mostrarJuegos();  
+        this.idJuego = null;  
+        this.formJuego.reset();  
+    
+      });  
+    }  
+  }
+
   crearJuego(juego: Juego){
     if (this.idJuego == null) {
       this.juegoService.crearJuego(juego).subscribe(() =>{

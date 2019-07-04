@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { catchError, retry} from "rxjs/operators";
 import { Juego } from "./juego";
 import { map } from "rxjs/operators";
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class JuegoService {
@@ -22,4 +23,13 @@ export class JuegoService {
         let opciones = new RequestOptions({headers: cabecera});
         return this._http.post(this.PHP_API_SERVER, juego, opciones).pipe(map((res: Response) => res.json()));
     }
+
+    deleteJuego(id) : Observable<number>{
+        let cabecera = new Headers({'Content-Type': 'application/json'});
+        let opciones = new RequestOptions({headers: cabecera});
+        console.log(`${this.PHP_API_SERVER}/${id}`);
+        return this._http.delete(`${this.PHP_API_SERVER}/${id}`, opciones).pipe(map((res: Response) => res.json()));
+    }
+
+
 }
