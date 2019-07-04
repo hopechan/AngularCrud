@@ -3,5 +3,5 @@ export class Juego {
    titulo: string;
    compania : string;
    genero : string;
-   fecha_lanzamiento: Date;
+   fecha_lanzamiento: string;
 }

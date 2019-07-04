@@ -79,7 +79,7 @@
                 <td class="tbl2">{{juego.genero}}</td>  
                 <td class="tbl2">{{juego.compania}}</td>  
                 <td class="tbl2">  
-                  <button type="button" class="btn deep-orange accent-4" matTooltip="Edita el registro" (click)="editar(juego.id)">Editar</button>  
+                  <button type="button" class="btn deep-orange accent-4" matTooltip="Edita el registro" (click)="getById(juego.id)">Editar</button>  
                 </td>  
                 <td class="tbl2">  
                   <button type="button" class="btn red accent-4" matTooltip="Borra el registro" (click)="borrar(juego.id)">Borrar</button>  
@@ -89,4 +89,5 @@
         </form>  
       </mat-card-content>  
     </mat-card>  
-    </div>  
+    </div>
+ 

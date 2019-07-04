@@ -13,7 +13,7 @@ export class JuegoComponent implements OnInit {
   dataSaved = false;
   formJuego : any;
   allJuegos : Observable<Juego[]>;
-  idJuego : null;
+  idJuego : number;
   mensaje = null;
 
 
@@ -22,7 +22,7 @@ export class JuegoComponent implements OnInit {
   ngOnInit() {
     this.formJuego = this.formbulider.group({
       titulo : ['', [Validators.required]],
-      fecha : ['', [Validators.required]],
+      fecha: ['', [Validators.required]],
       compania : ['', [Validators.required]],
       genero : ['', [Validators.required]]
     });
@@ -44,7 +44,7 @@ export class JuegoComponent implements OnInit {
 
   }
 
-  borrar(id: string){
+  borrar(id: number){
     if (confirm("¿Esta seguro de borrar el registro?")) {   
       console.log(id);
       
@@ -70,7 +70,30 @@ export class JuegoComponent implements OnInit {
       });
     } else {
       juego.id = this.idJuego;
+      console.log(juego);
+      
+      this.juegoService.update(juego).subscribe(() =>{
+        this.dataSaved = true;
+        this.mensaje = "Registro Actualizado";
+        this.mostrarJuegos();
+        this.idJuego = null;
+        this.formJuego.reset();
+      })
     }
+  }
+
+  getById(id: number){
+    console.log('holis');
+    
+    this.juegoService.getById(id).subscribe(juego => {  
+        this.mensaje = null; 
+        this.dataSaved = false;  
+        this.idJuego = juego.id;  
+        this.formJuego.controls['titulo'].setValue(juego.titulo);  
+        this.formJuego.controls['fecha'].setValue(juego.fecha_lanzamiento);  
+        this.formJuego.controls['compania'].setValue(juego.compania);  
+        this.formJuego.controls['genero'].setValue(juego.genero);  
+      });
   }
 
   resetForm(){
@@ -78,5 +101,4 @@ export class JuegoComponent implements OnInit {
     this.mensaje = null;
     this.dataSaved = false;
   }
-
 }
