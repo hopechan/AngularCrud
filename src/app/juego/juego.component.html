@@ -1,4 +1,4 @@
-<div class="container">  
+<div class="container"> 
     <mat-card>  
       <mat-toolbar color="accent">  
         <div align="center" style="color:white;text-align: right;">  
@@ -50,19 +50,20 @@
                   <tr>  
                     <td></td>  
                     <td  class="content-center">  
-                      <button type="submit" mat-raised-button color="accent"matTooltip="Click Submit Button"[disabled]="!formJuego.valid">Submit</button>      
-                      <button type="reset" mat-raised-button color="accent"matTooltip="Click Reset Button" (click)="resetForm()">Reset</button>  
+                      <button type="submit" mat-raised-button color="accent" matTooltip="guarda el registro "[disabled]="!formJuego.valid">Submit</button>      
+                      <button type="reset" mat-raised-button color="accent" matTooltip="Limpia el formulario" (click)="resetForm()">Reset</button>  
                     </td>  
                     <td>  
-                      <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">  
+                      <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" class="success" align="left">  
                         {{mensaje}}  
                       </p>  
                     </td>  
                   </tr>  
                 </table>  
-    <br><br>  
+         <h4>Juegos Disponibles</h4>
+         <hr>  
           <table class="table" >  
-              <tr ngclass="btn-primary">  
+              <tr ngclass="">  
                 <th class="tbl2">ID</th>  
                 <th class="tbl2">Titulo</th>  
                 <th class="tbl2">Fecha Lanzamiento</th>  
@@ -78,10 +79,10 @@
                 <td class="tbl2">{{juego.genero}}</td>  
                 <td class="tbl2">{{juego.compania}}</td>  
                 <td class="tbl2">  
-                  <button type="button" class="btn btn-info" matTooltip="Click Edit Button"(click)="editar(juego.id)">Editar</button>  
+                  <button type="button" class="btn deep-orange accent-4" matTooltip="Edita el registro" (click)="editar(juego.id)">Editar</button>  
                 </td>  
                 <td class="tbl2">  
-                  <button type="button" class="btn btn-danger"matTooltip="Click Delete Button" (click)="borrar(juego.id)">Borrar</button>  
+                  <button type="button" class="btn red accent-4" matTooltip="Borra el registro" (click)="borrar(juego.id)">Borrar</button>  
                 </td>  
               </tr>  
             </table>  
