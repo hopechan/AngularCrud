@@ -1,19 +1,4 @@
-<div class="container">
-  <div class="row">
-      <div class="col s12 m12">
-          <div><h1>{{title}}</h1></div>
-      </div>
-  </div>
-  <!-- Esta etiqueta es nuestro componente JuegoReadComponent
-    el nombre de la etiqueta se define en la propiedad selector
-    de @Component
-    -->
-    <hr><br>
-  <app-juego-read
-      *ngIf="mostrar_juegos_html"
-      (mostrar_crear_juego_event) = "mostrarCrearJuego($event)">
-  </app-juego-read>
-
-  <app-juego-create *ngIf = "mostrar_crear_juego_html" (mostrar_juegos_event)  = "mostrarJuegos($event)"></app-juego-create>
-</div>
-
+<router-outlet></router-outlet>
+<p>  
+  <app-juego></app-juego>  
+</p> 

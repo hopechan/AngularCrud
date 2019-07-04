@@ -1,15 +1,2 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    background-color:grey;
-    color: white;
-    font-size: 20px;
-}
-
-td,tr{
-    border: none
-}
-
-thead{
-    border: solid black 3px;
-    background-color: black;
-}
+@import '@angular/material/prebuilt-themes/indigo-pink.css';  

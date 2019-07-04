@@ -1,0 +1,91 @@
+<div class="container">  
+    <mat-card>  
+      <mat-toolbar color="accent">  
+        <div align="center" style="color:white;text-align: right;">  
+          CRUD Angular  
+        </div>    
+      </mat-toolbar>  
+    <br><br>  
+      <mat-card-content>  
+        <form [formGroup]="formJuego" (ngSubmit)="onSubmit(formJuego.value)">  
+                <table>  
+                  <tr>  
+                    <td class="tbl1">  
+                      <mat-form-field class="demo-full-width">  
+                        <input formControlName="titulo" matTooltip="titulo" matInput placeholder="Titulo">  
+                      </mat-form-field>  
+                      <mat-error>  
+                        <span *ngIf="!formJuego.get('titulo').value && formJuego.get('titulo').touched"></span>  
+                      </mat-error>  
+                    </td>  
+                    <td class="tbl1">  
+                      <mat-form-field class="demo-full-width">  
+                        <input matInput [matDatepicker]="picker" matTooltip="Fecha Lanzamiento" formControlName="fecha" placeholder="Ingrese fecha">  
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
+                        <mat-datepicker #picker></mat-datepicker>  
+                      </mat-form-field>  
+                      <mat-error>  
+                        <span *ngIf="!formJuego.get('fecha').value && formJuego.get('fecha').touched"></span>  
+                      </mat-error>  
+                    </td>  
+                    <td class="tbl1">  
+                      <mat-form-field class="demo-full-width">  
+                        <input formControlName="compania" matTooltip="Compañia" matInput placeholder="Compañia">  
+                      </mat-form-field>  
+                      <mat-error>  
+                        <span *ngIf="!formJuego.get('compania').value && formJuego.get('compania').touched"></span>  
+                      </mat-error>  
+                    </td>  
+                  </tr>  
+                  <tr>  
+                    <td class="tbl1">  
+                      <mat-form-field class="demo-full-width">  
+                        <input matTooltip="genero" formControlName="genero" matInput placeholder="Genero">  
+                      </mat-form-field>  
+                      <mat-error>  
+                        <span *ngIf="!formJuego.get('genero').value && formJuego.get('genero').touched"></span>  
+                      </mat-error>  
+                    </td>  
+                  </tr>  
+                  <tr>  
+                    <td></td>  
+                    <td  class="content-center">  
+                      <button type="submit" mat-raised-button color="accent"matTooltip="Click Submit Button"[disabled]="!formJuego.valid">Submit</button>      
+                      <button type="reset" mat-raised-button color="accent"matTooltip="Click Reset Button" (click)="resetForm()">Reset</button>  
+                    </td>  
+                    <td>  
+                      <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">  
+                        {{mensaje}}  
+                      </p>  
+                    </td>  
+                  </tr>  
+                </table>  
+    <br><br>  
+          <table class="table" >  
+              <tr ngclass="btn-primary">  
+                <th class="tbl2">ID</th>  
+                <th class="tbl2">Titulo</th>  
+                <th class="tbl2">Fecha Lanzamiento</th>  
+                <th class="tbl2">Genero</th>  
+                <th class="tbl2">Compañia</th>  
+                <th class="tbl2">Edit</th>  
+                <th class="tbl2">Delete</th>  
+              </tr>  
+              <tr *ngFor="let juego of allJuegos | async">  
+                <td class="tbl2">{{juego.id}}</td>  
+                <td class="tbl2">{{juego.titulo}}</td>  
+                <td class="tbl2">{{juego.fecha_lanzamiento | date}}</td>  
+                <td class="tbl2">{{juego.genero}}</td>  
+                <td class="tbl2">{{juego.compania}}</td>  
+                <td class="tbl2">  
+                  <button type="button" class="btn btn-info" matTooltip="Click Edit Button"(click)="editar(juego.id)">Editar</button>  
+                </td>  
+                <td class="tbl2">  
+                  <button type="button" class="btn btn-danger"matTooltip="Click Delete Button" (click)="borrar(juego.id)">Borrar</button>  
+                </td>  
+              </tr>  
+            </table>  
+        </form>  
+      </mat-card-content>  
+    </mat-card>  
+    </div>  

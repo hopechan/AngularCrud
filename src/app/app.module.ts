@@ -5,32 +5,43 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { JuegoCreateComponent } from './juego-create/juego-create.component';
-import { JuegoReadComponent } from './juego-read/juego-read.component';
-import { JuegoUpdateComponent } from './juego-update/juego-update.component';
-import { JuegoDeleteComponent } from './juego-delete/juego-delete.component';
-import { JuegoDetalleComponent } from './juego-detalle/juego-detalle.component';
+import { MatButtonModule, MatMenuModule, MatDatepickerModule, MatNativeDateModule,
+        MatInputModule, MatToolbarModule, MatTooltipModule, MatIconModule, 
+        MatCardModule, MatSidenavModule, MatFormFieldModule } from "@angular/material";
+import { MatRadioModule } from "@angular/material/radio";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { JuegoService } from './juego.service';
+import { HttpClientModule } from '@angular/common/http';
+import { JuegoComponent } from './juego/juego.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    JuegoCreateComponent,
-    JuegoReadComponent,
-    JuegoUpdateComponent,
-    JuegoDeleteComponent,
-    JuegoDetalleComponent
+    JuegoComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    //Nuevo import
-    HttpModule ,
-    FormsModule,
-    ReactiveFormsModule
+    BrowserModule,  
+    FormsModule,  
+    ReactiveFormsModule,  
+    HttpClientModule,  
+    HttpModule,
+    BrowserAnimationsModule,  
+    MatButtonModule,  
+    MatMenuModule,  
+    MatDatepickerModule,  
+    MatNativeDateModule,  
+    MatIconModule,  
+    MatRadioModule,  
+    MatCardModule,  
+    MatSidenavModule,  
+    MatFormFieldModule,  
+    MatInputModule,  
+    MatTooltipModule,  
+    MatToolbarModule,  
+    AppRoutingModule  
   ],
   //se agrega el servicio en providers 
-  providers: [JuegoService],
+  providers: [JuegoService, HttpClientModule, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

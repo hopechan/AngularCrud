@@ -13,10 +13,10 @@ export class JuegoService {
     PHP_API_SERVER = "http://localhost/api/angular/juego";
 
     //Obteniendo una lista de tipo juego 
-    readJuegos(): Observable<Juego[]>{
+    getAll(): Observable<Juego[]>{
         return this._http.get(this.PHP_API_SERVER).pipe(map((res: Response) => res.json()))
     }
-
+          
     crearJuego(juego): Observable<Juego[]>{
         let cabecera = new Headers({'Content-Type': 'application/json'});
         let opciones = new RequestOptions({headers: cabecera});
