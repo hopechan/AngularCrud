@@ -19,9 +19,14 @@ export class JuegoService {
     }
           
     crearJuego(juego): Observable<Juego[]>{
+        let formData : FormData = new FormData();
+        formData.append('titulo', juego.titulo);
+        formData.append('compania', juego.compania);
+        formData.append('genero', juego.genero);
+        formData.append('fecha_lanzamiento', juego.fecha_lanzamiento);
         let cabecera = new Headers({'Content-Type': 'application/json'});
         let opciones = new RequestOptions({headers: cabecera});
-        return this._http.post(this.PHP_API_SERVER, juego, opciones).pipe(map((res: Response) => res.json()));
+        return this._http.post(this.PHP_API_SERVER, formData).pipe(map((res: Response) => res.json()));
     }
 
     deleteJuego(id) : Observable<number>{
