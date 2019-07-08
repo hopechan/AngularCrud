@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from "@angular/forms";
-import { Observable } from "rxjs";
-import { JuegoService } from "../juego.service";
-import { Juego } from "../juego";
+import { FormBuilder, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { JuegoService } from '../juego.service';
+import { Juego } from '../juego';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-juego',
@@ -40,23 +41,17 @@ export class JuegoComponent implements OnInit {
     this.formJuego.reset();
   }
 
-  editar(id : string){
-
-  }
-
   borrar(id: number){
-    if (confirm("¿Esta seguro de borrar el registro?")) {   
+    if (confirm('¿Esta seguro de borrar el registro?')) {
       console.log(id);
-      
-      this.juegoService.deleteJuego(id).subscribe(() => {  
-        this.dataSaved = true;  
-        this.mensaje = 'Registro Borrado';  
-        this.mostrarJuegos();  
-        this.idJuego = null;  
-        this.formJuego.reset();  
-    
-      });  
-    }  
+      this.juegoService.deleteJuego(id).subscribe(() => {
+        this.dataSaved = true;
+        this.mensaje = 'Registro Borrado';
+        this.mostrarJuegos();
+        this.idJuego = null;
+        this.formJuego.reset();
+      });
+    }
   }
 
   crearJuego(juego: Juego){
@@ -71,10 +66,9 @@ export class JuegoComponent implements OnInit {
     } else {
       juego.id = this.idJuego;
       console.log(juego);
-      
       this.juegoService.update(juego).subscribe(() =>{
         this.dataSaved = true;
-        this.mensaje = "Registro Actualizado";
+        this.mensaje = 'Registro Actualizado';
         this.mostrarJuegos();
         this.idJuego = null;
         this.formJuego.reset();
@@ -83,22 +77,14 @@ export class JuegoComponent implements OnInit {
   }
 
   getById(id: number){
-    console.log('holis');
-    
-    this.juegoService.getById(id).subscribe(juego => {  
+    this.juegoService.getById(id).subscribe(juego => {
         this.mensaje = null; 
         this.dataSaved = false;  
         this.idJuego = juego.id;  
-        this.formJuego.controls['titulo'].setValue(juego.titulo);  
-        this.formJuego.controls['fecha'].setValue(juego.fecha_lanzamiento);  
-        this.formJuego.controls['compania'].setValue(juego.compania);  
-        this.formJuego.controls['genero'].setValue(juego.genero);  
+        this.formJuego.controls['titulo'].setValue(juego.titulo);
+        this.formJuego.controls['fecha'].setValue(juego.fecha_lanzamiento);
+        this.formJuego.controls['compania'].setValue(juego.compania);
+        this.formJuego.controls['genero'].setValue(juego.genero);
       });
-  }
-
-  resetForm(){
-    this.formJuego.reset();
-    this.mensaje = null;
-    this.dataSaved = false;
   }
 }

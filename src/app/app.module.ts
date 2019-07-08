@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatButtonModule, MatMenuModule, MatDatepickerModule, MatNativeDateModule,
         MatInputModule, MatToolbarModule, MatTooltipModule, MatIconModule, 
-        MatCardModule, MatSidenavModule, MatFormFieldModule } from "@angular/material";
+        MatCardModule, MatSidenavModule, MatFormFieldModule} from "@angular/material";
 import { MatRadioModule } from "@angular/material/radio";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { JuegoService } from './juego.service';
@@ -37,7 +37,7 @@ import { JuegoComponent } from './juego/juego.component';
     MatFormFieldModule,  
     MatInputModule,  
     MatTooltipModule,  
-    MatToolbarModule,  
+    MatToolbarModule,
     AppRoutingModule  
   ],
   //se agrega el servicio en providers 

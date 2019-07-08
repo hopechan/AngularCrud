@@ -1,0 +1,7 @@
+mat-card{
+    background-color:darkslategrey;
+    color: white;
+}  
+mat-form-field, input, input[placeholder]{
+    color:white;
+}
