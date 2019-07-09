@@ -1,7 +1,9 @@
 mat-card{
     background-color:darkslategrey;
     color: white;
-}  
-mat-form-field, input, input[placeholder]{
+}
+
+input, input::placeholder,.btn{
     color:white;
+    background-color: darkslategrey;
 }

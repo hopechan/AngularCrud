@@ -11,42 +11,44 @@
           <div class="row">
             <div class="col s6 m6"><input formControlName="titulo" matTooltip="titulo" matInput placeholder="Titulo"></div>
             <div class="col s6 m6">
-              <input matInput type="date" matTooltip="Fecha Lanzamiento" formControlName="fecha" placeholder="Ingrese fecha">
+              <input matInput type="date" matTooltip="Fecha Lanzamiento" formControlName="fecha">
             </div>
           </div>
           <div class="row">
-            <div class="col s6 m6"><input formControlName="compania" matTooltip="compania" matInput placeholder="compania"></div>
+            <div class="col s6 m6"><input formControlName="compania" matTooltip="Compañia" matInput placeholder="Compañia"></div>
             <div class="col s6 m6"><input matInput matTooltip="genero" formControlName="genero" placeholder="Genero"></div>
           </div>
           <div class="row">
             <div class="col s12 m12">
-                <button type="submit" mat-raised-button matTooltip="guarda el registro " [disabled]="!formJuego.valid" class="teal darken-3">Guardar</button>      
-                <button type="reset" mat-raised-button matTooltip="Limpia el formulario" (click)="resetForm()" class="red accent-3">Reset</button>  
+                <div class="row">
+                  <div class="col s6 m2"><button type="submit" mat-raised-button matTooltip="guarda el registro " [disabled]="!formJuego.valid" class="btn teal darken-3">Guardar</button></div>
+                  <div class="col s6 m2"><button type="reset" mat-raised-button matTooltip="Limpia el formulario" (click)="resetForm()" class="btn red accent-3">Reset</button></div>
+                </div>        
             </div>
           </div>
         </form>
         <h4>Juegos Disponibles</h4><hr>
         <table class="responsive-table">  
           <thead ngclass="">  
-            <th class="tbl2">ID</th>  
-            <th class="tbl2">Titulo</th>  
-            <th class="tbl2">Fecha Lanzamiento</th>  
-            <th class="tbl2">Genero</th>  
-            <th class="tbl2">Compañia</th>  
-            <th class="tbl2">Edit</th>  
-            <th class="tbl2">Delete</th>  
+            <th>ID</th>  
+            <th>Titulo</th>  
+            <th>Fecha Lanzamiento</th>  
+            <th>Genero</th>  
+            <th>Compañia</th>  
+            <th>Edit</th>  
+            <th>Delete</th>  
           </thead>  
           <tbody>
               <tr *ngFor="let juego of allJuegos | async">  
-                  <td class="tbl2">{{juego.id}}</td>  
-                  <td class="tbl2">{{juego.titulo}}</td>  
-                  <td class="tbl2">{{juego.fecha_lanzamiento | date}}</td>  
-                  <td class="tbl2">{{juego.genero}}</td>  
-                  <td class="tbl2">{{juego.compania}}</td>  
-                  <td class="tbl2">  
+                  <td>{{juego.id}}</td>  
+                  <td>{{juego.titulo}}</td>  
+                  <td>{{juego.fecha_lanzamiento | date}}</td>  
+                  <td>{{juego.genero}}</td>  
+                  <td>{{juego.compania}}</td>  
+                  <td>  
                     <button type="button" class="btn deep-orange accent-4" matTooltip="Edita el registro" (click)="getById(juego.id)">Editar</button>  
                   </td>  
-                  <td class="tbl2">  
+                  <td>  
                     <button type="button" class="btn red accent-4" matTooltip="Borra el registro" (click)="borrar(juego.id)">Borrar</button>  
                   </td>  
                 </tr>  

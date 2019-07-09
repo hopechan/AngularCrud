@@ -3,13 +3,13 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { JuegoService } from '../juego.service';
 import { Juego } from '../juego';
-import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-juego',
   templateUrl: './juego.component.html',
   styleUrls: ['./juego.component.css']
 })
+
 export class JuegoComponent implements OnInit {
   dataSaved = false;
   formJuego : any;
